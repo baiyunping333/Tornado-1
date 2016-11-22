@@ -7,7 +7,11 @@ import httpserver
 import torndb
 import redis
 
-from 
+from tornado.web import RequestHandler
+
+class IndexHandler(RequestHandler):
+	def get(self):
+		pass
 
 def main():
 	app = tornado.web.Application(
