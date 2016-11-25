@@ -22,7 +22,7 @@ mysql_options = dict(
 #redis配置参数
 redis_options = dict(
     host="127.0.0.1",
-    post=6379
+    port=6379
 )
 
 log_file = os.path.join(os.path.dirname(__file__),'logs/log.log')

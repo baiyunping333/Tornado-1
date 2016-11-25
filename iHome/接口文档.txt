@@ -1,36 +1,72 @@
-1 图片验证码
+1.图片验证码：
 描述：用来生成图片验证码
 
-URL： /api/imagecode?codeid=123&pcodeid=
-method: get
-传入参数：
-名称   类型   说明           是否必须
-codeid  int  验证码编号          是
-pcodeid int 上一个验证码编号      是
+URL：/api/imagecode?pcodeid=456&codeid=123
 
-返回值:
+method:get
+
+请求参数：
+名称      类型      说明        是否必须
+codeid    int   验证码编码       是
+pcodeid   int   上一个验证码编码  是
+
+pcodeid=456&codeid=123
+
+返回值：
 图片二进制数据
 
-2 发送短信验证码
+——————————————————————————————————————————————
 
+2.发送短信验证码：
+描述：用来实现短信验证码
 
-URL： /api/phonecode
+URL：/api/smscode
+
 method: post
-传入参数： json
-名称   类型  说明    是否必须
-mobile  string         是
-image_code_id  string 
-image_code_text  string
+
+请求参数：
+名称              类型      说明      是否必须
+mobile          string   手机号        是
+image_code_id   string   图片验证码id   是
+image_code_text string   图片验证吗文本  是
 
 {
-   "mobile":"18516951234",
-   "image_code_id":"f78a6c48-70fc-4b6a-b564-7e8043903e24",
-   "image_code_text":"fmrc",
+  "mobile":"18736008450",
+  "image_code_id":"f78a6c48-70fc-4b6a-b564-7e8043903e24",
+  "image_code_text":"ykft",
 }
 
 返回值：
 {
-  "errno":0
+  "errno":0,
   "errmsg":"OK"
 }
 
+_______________________________________________________
+
+3.注册接口:
+描述：实现用户注册
+
+URL：/api/register
+
+method: post
+
+请求参数：
+名称              类型      说明      是否必须
+mobile          string   手机号        是
+image_code_text string   图片验证吗文本  是
+sms_code_text   string   短信验证码文本  是
+password        string   用户密码       是
+
+{
+  "mobile":"18736008450",
+  "image_code_text":"ykft",
+  "sms_code_text":"2377",
+  "password":"123456789"
+}
+
+返回值：
+{
+  "errno":0,
+  "errmsg":"OK"
+}
