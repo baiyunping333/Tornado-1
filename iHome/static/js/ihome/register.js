@@ -148,5 +148,35 @@ $(document).ready(function() {
             $("#password2-err").show();
             return;
         }
+        var data = {};
+        $(this).serializeArray().map(function(x){
+          data[x.name] = x.value;
+        });
+        var jsonData = JSON.stringify(data);
+        $.ajax({
+            url:"",
+            type:"",
+            data: jsonData,
+            contentType: "application/json",
+            dataType: "json",
+            headers:{
+              "X-XSRFTOKEN":getCookie("_xsrf"),
+            },
+            success: function (d) {
+               alert(d);
+               if("4004" == d.errno){
+                 $("#phone-code-err span").html(d.errmsg);
+                 $("#phone-code-err").show();
+                 return;
+               }
+               else if ("4003" == d.errno) {
+                   $("#mobile-err span").html(d.errmsg);
+                   $("#mobile-err").show();
+               }
+               else if ("0" == d.errno) {
+                   location.href = "/";
+               }
+            }
+        });
     });
 })
