@@ -3,7 +3,7 @@ import json
 import tornado.web
 
 from tornado.web import RequestHandler
-# from utils.session import Session
+from utils.session import Session
 
 class BaseHandler(RequestHandler):
     """handler基类"""
@@ -34,3 +34,6 @@ class BaseHandler(RequestHandler):
 
     def initialize(self):
         pass
+    def get_current_user(self):
+        self.session = Session(self)
+        return self.session.data

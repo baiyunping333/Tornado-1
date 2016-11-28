@@ -27,3 +27,7 @@ redis_options = dict(
 
 log_file = os.path.join(os.path.dirname(__file__),'logs/log.log')
 log_level = "debug"
+
+passwd_hash_key="jzHMmyjOSWaZ4sDmocvHRdvbMBebLU/QsySOTyqcfR8="
+
+session_expires = 86400 #session有效期,秒
