@@ -154,27 +154,26 @@ $(document).ready(function() {
         });
         var jsonData = JSON.stringify(data);
         $.ajax({
-            url:"",
-            type:"",
+            url:"/api/register",
+            type:"post",
             data: jsonData,
             contentType: "application/json",
             dataType: "json",
             headers:{
               "X-XSRFTOKEN":getCookie("_xsrf"),
             },
-            success: function (d) {
-               alert(d);
-               if("4004" == d.errno){
-                 $("#phone-code-err span").html(d.errmsg);
+            success: function (data) {
+               if("4004" == data.errno){
+                 $("#phone-code-err span").html(data.errmsg);
                  $("#phone-code-err").show();
                  return;
                }
-               else if ("4003" == d.errno) {
-                   $("#mobile-err span").html(d.errmsg);
+               else if ("4003" == data.errno) {
+                   $("#mobile-err span").html(data.errmsg);
                    $("#mobile-err").show();
                }
-               else if ("0" == d.errno) {
-                   location.href = "/";
+               else if ("0" == data.errno) {
+                    location.href = "/";
                }
             }
         });
