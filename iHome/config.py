@@ -31,3 +31,6 @@ log_level = "debug"
 passwd_hash_key="jzHMmyjOSWaZ4sDmocvHRdvbMBebLU/QsySOTyqcfR8="
 
 session_expires = 86400 #session有效期,秒
+
+# http://ohdqvt8kg.bkt.clouddn.com/34f3706addf721d3.gif
+image_url_prefix= "http://ohdqvt8kg.bkt.clouddn.com/" #七牛云图片存储域名

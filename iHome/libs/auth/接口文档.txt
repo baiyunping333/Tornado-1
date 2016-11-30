@@ -1,0 +1,29 @@
+接口地址：http://api.avatardata.cn/IdCardCertificate/Verify
+返回格式：JSON/XML
+请求方式：GET/POST
+AppKey：	4c4d6a5eb52f403bbae3a4d44792eb63
+请求示例： http://api.avatardata.cn/IdCardCertificate/Verify?key=[您申请的APPKEY]&realname=陈龙&idcard=420704198709150033
+接口备注：通过真实姓名和身份证号来查询身份证号是否真实且属于该公民
+请求参数：
+ 	名称	    类型	   必填	说明
+ 	key	     String	   是	应用APPKEY
+ 	realname String	   是	真实姓名
+ 	idcard	 String	   是	身份证号
+ 	dtype	 String	   否	返回结果格式：可选JSON/XML，默认为JSON
+ 	format	 Boolean   否	当返回结果格式为JSON时，是否对其进行格式化，为了节省流量默认为false，测试时您可以传入true来熟悉返回内容
+
+JSON返回示例：
+{
+  "error_code": 0,
+  "reason": "Succes",
+  "result": {
+    "code": "1000",
+    "message": "一致"
+  }
+}
+
+{
+    "result":null,
+    "error_code":1,
+    "reason":"身份证号格式不正确"
+}
